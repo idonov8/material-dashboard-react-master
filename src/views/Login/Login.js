@@ -104,7 +104,7 @@ export default function LoginPage() {
               </Button>
               <GridItem xs={12} sm={12} md={4}>
                 <p>
-                  Don`&apos;`t have a user?
+                  Don&apos;t have a user?
                   <NavLink to="/signup" activeClassName="active">
                     {" "}
                     Sign Up!

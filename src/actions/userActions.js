@@ -68,7 +68,6 @@ export const autoLogin = () => dispatch => {
       //     user: {},
       //.    token: "aaaaa.bbbbb.bbbbb"
       // }
-      localStorage.setItem("token", data.token);
       dispatch(setUser(data.user));
     });
 };
