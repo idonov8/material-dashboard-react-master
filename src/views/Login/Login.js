@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchUser } from "../../actions/userActions";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // core components
@@ -32,8 +34,19 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-export default function UserProfile() {
+export default function LoginPage() {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const handleSubmit = () => {
+    dispatch(
+      fetchUser({
+        name: username,
+        password: password
+      })
+    );
+  };
   return (
     <div>
       <GridContainer
@@ -60,6 +73,10 @@ export default function UserProfile() {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    inputProps={{
+                      value: username,
+                      onChange: e => setUsername(e.target.value)
+                    }}
                   />
                 </GridItem>
               </GridContainer>
@@ -71,12 +88,18 @@ export default function UserProfile() {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    inputProps={{
+                      value: password,
+                      onChange: e => setPassword(e.target.value)
+                    }}
                   />
                 </GridItem>
               </GridContainer>
             </CardBody>
             <CardFooter>
-              <Button color="primary">Login</Button>
+              <Button onClick={handleSubmit} color="primary">
+                Login
+              </Button>
             </CardFooter>
           </Card>
         </GridItem>
