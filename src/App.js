@@ -8,6 +8,7 @@ import { autoLogin } from "./actions/userActions";
 import Admin from "layouts/Admin.js";
 import RTL from "layouts/RTL.js";
 import LoginPage from "views/Login/Login.js";
+import SignUpPage from "views/SignUp/SignUp.js";
 
 import "assets/css/material-dashboard-react.css?v=1.8.0";
 
@@ -36,6 +37,7 @@ export default function App() {
           ) : (
             // Not logged in
             <>
+              <Route path="/signup" component={SignUpPage} />
               <Route path="/login" component={LoginPage} />
               <Redirect from="/" to="/login" />
             </>

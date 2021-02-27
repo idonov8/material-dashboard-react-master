@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchUser } from "../../actions/userActions";
+import { NavLink } from "react-router-dom";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // core components
@@ -42,7 +43,7 @@ export default function LoginPage() {
   const handleSubmit = () => {
     dispatch(
       fetchUser({
-        name: username,
+        username: username,
         password: password
       })
     );
@@ -62,7 +63,7 @@ export default function LoginPage() {
           <Card>
             <CardHeader color="primary">
               <h4 className={classes.cardTitleWhite}>Login</h4>
-              <p className={classes.cardCategoryWhite}>Login to your user m8</p>
+              <p className={classes.cardCategoryWhite}>Login to Your User</p>
             </CardHeader>
             <CardBody>
               <GridContainer>
@@ -101,6 +102,15 @@ export default function LoginPage() {
               <Button onClick={handleSubmit} color="primary">
                 Login
               </Button>
+              <GridItem xs={12} sm={12} md={4}>
+                <p>
+                  Don`&apos;`t have a user?
+                  <NavLink to="/signup" activeClassName="active">
+                    {" "}
+                    Sign Up!
+                  </NavLink>
+                </p>
+              </GridItem>
             </CardFooter>
           </Card>
         </GridItem>
