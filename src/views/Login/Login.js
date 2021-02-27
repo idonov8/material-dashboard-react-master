@@ -89,6 +89,7 @@ export default function LoginPage() {
                       fullWidth: true
                     }}
                     inputProps={{
+                      type: "password",
                       value: password,
                       onChange: e => setPassword(e.target.value)
                     }}
